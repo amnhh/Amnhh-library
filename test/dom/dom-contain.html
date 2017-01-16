@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="hehehe"></div>
+<div id="myDiv" value="test-value" class="again amnhh mamamin">
+  <a href="javascript:void(0)" id="a-link"></a>
+</div>
+<script src="./../../dist/Amnhh.js"></script>
+<script>
+  var son = Amnhh('#a-link');
+  var dad = Amnhh('#myDiv');
+  var uncle = Amnhh('.hehehe');
+
+  console.log(dad.contain(son));
+  console.log(dad.contain(uncle));
+  console.log(son.contain(dad));
+  console.log(Amnhh(document.body).contain(dad))
+</script>
+</body>
+</html>

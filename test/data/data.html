@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="myDiv" value="test-value" class="again amnhh mamamin"></div>
+<script src="./../../dist/Amnhh.js"></script>
+<script>
+  var $myDiv = Amnhh('#myDiv');
+  $myDiv.data('again', 'amnhh');
+  $myDiv.data('service-id', '2');
+  // 存得到了预期结果
+
+  console.log($myDiv.data('again'));
+  // 取也得到了预期的结果
+
+  $myDiv.data({
+    test1 : 'test1',
+    test2 : 'test2',
+    test3 : 'test3'
+  });
+  // 批量存也得到了预期的结果。。。
+
+  $myDiv.removeData('test1'); // 也 remove 成功了
+  $myDiv.removeData(['test2', 'test3']); // 批量也 remove 成功了
+</script>
+</body>
+</html>
