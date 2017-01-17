@@ -73,7 +73,7 @@ protoArr.isArrayLike = function (col) {
  * @param {Array, Object} arr 可以是类数组对象, 可以是对象, 可以是数组
  * @param func
  */
-protoArr.each = protoArr.forEach = function (arr, func) {
+proto.each = protoArr.each = protoArr.forEach = function (arr, func) {
   if (protoArr.isArrayLike(arr)) {
     for (var i = 0, len = protoArr.getLength(arr); i < len; i ++) {
       func(arr[i], i, arr);

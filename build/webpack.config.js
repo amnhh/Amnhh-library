@@ -21,6 +21,7 @@ module.exports = {
       './../src/promise',
       './../src/data',
       './../src/url',
+      './../src/event',
       './../src/amnhh']
   },
 
@@ -32,6 +33,5 @@ module.exports = {
     // 只有 [name] 才可以被识别
     // filename : '[again].bundle.js'
     filename : '[name].js'
-
   }
 };

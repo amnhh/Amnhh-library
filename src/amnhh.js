@@ -14,6 +14,7 @@ require('./json');
 require('./promise');
 require('./data');
 require('./url');
+require('./event');
 
 
 /**

@@ -130,6 +130,9 @@ Amnhh.fn = Amnhh.prototype = {
       return this;
 
     }
+  },
+  isAmnhh : function (val) {
+    return val instanceof Amnhh
   }
 };
 

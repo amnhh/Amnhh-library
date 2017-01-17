@@ -53,7 +53,8 @@ var Amnhh =
 	__webpack_require__(7);
 	__webpack_require__(8);
 	__webpack_require__(9);
-	module.exports = __webpack_require__(10);
+	__webpack_require__(10);
+	module.exports = __webpack_require__(11);
 
 
 /***/ },
@@ -192,6 +193,9 @@ var Amnhh =
 	      return this;
 
 	    }
+	  },
+	  isAmnhh : function (val) {
+	    return val instanceof Amnhh
 	  }
 	};
 
@@ -570,7 +574,7 @@ var Amnhh =
 	 * @param {Array, Object} arr 可以是类数组对象, 可以是对象, 可以是数组
 	 * @param func
 	 */
-	protoArr.each = protoArr.forEach = function (arr, func) {
+	proto.each = protoArr.each = protoArr.forEach = function (arr, func) {
 	  if (protoArr.isArrayLike(arr)) {
 	    for (var i = 0, len = protoArr.getLength(arr); i < len; i ++) {
 	      func(arr[i], i, arr);
@@ -1100,37 +1104,6 @@ var Amnhh =
 
 	/**
 	 * Author : anning
-	 * Date : 17/1/13
-	 * Mail : amnhhlod@gmail.com
-	 */
-
-	var Amnhh = __webpack_require__(1);
-
-	__webpack_require__(4);
-	__webpack_require__(3);
-	__webpack_require__(5);
-	__webpack_require__(6);
-	__webpack_require__(7);
-	__webpack_require__(8);
-	__webpack_require__(9);
-	__webpack_require__(11);
-
-
-	/**
-	 * 现在生成的其实只是 Amnhh.fn.init 的实例, 而不是 Amnhh 的实例
-	 * 所以我们需要的就是, 把当前的构造函数的 prototype 指向 Amnhh 的 protoype
-	 */
-	Amnhh.fn.init.prototype = Amnhh.fn;
-	// console.log(Amnhh.mix)
-
-	module.exports = Amnhh;
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Author : anning
 	 * Date : 17/1/16
 	 * Mail : amnhhlod@gmail.com
 	 */
@@ -1181,6 +1154,116 @@ var Amnhh =
 	  // 最后返回 ret
 	  return ret || '';
 	};
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Author : anning
+	 * Date : 17/1/13
+	 * Mail : amnhhlod@gmail.com
+	 */
+
+	var Amnhh = __webpack_require__(1);
+
+	__webpack_require__(4);
+	__webpack_require__(3);
+	__webpack_require__(5);
+	__webpack_require__(6);
+	__webpack_require__(7);
+	__webpack_require__(8);
+	__webpack_require__(9);
+	__webpack_require__(10);
+	__webpack_require__(12);
+
+
+	/**
+	 * 现在生成的其实只是 Amnhh.fn.init 的实例, 而不是 Amnhh 的实例
+	 * 所以我们需要的就是, 把当前的构造函数的 prototype 指向 Amnhh 的 protoype
+	 */
+	Amnhh.fn.init.prototype = Amnhh.fn;
+	// console.log(Amnhh.mix)
+
+	module.exports = Amnhh;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Author : anning
+	 * Date : 17/1/16
+	 * Mail : amnhhlod@gmail.com
+	 */
+
+	/**
+	 * 对事件的封装
+	 *
+	 * 这里预计的只是对事件绑定的一个封装, 并将其集成在 Amnhh 这个对象上面
+	 */
+
+	var Amnhh = __webpack_require__(1);
+
+	__webpack_require__(5);
+
+	var proto = Amnhh.fn;
+
+
+	var addEvent = function (ele, type, func) {
+	  if (typeof ele.addEventListener === 'function') {
+	    return ele.addEventListener(type, func);
+	  } else if (typeof ele.attachEvent === 'function') {
+	    return ele.attachEvent('on' + type, func);
+	  } else {
+	    ele['on' + type] = func;
+	  }
+	};
+
+	var removeEvent = function (ele, type, func) {
+	  if (typeof ele.removeEventListener === 'function') {
+	    return ele.removeEventListener(type, func);
+	  } else if (typeof ele.detachEvent === 'function') {
+	    return ele.detachEvent('on' + type, func)
+	  } else {
+	    ele['on' + type] = null;
+	  }
+	};
+
+	proto.add = function (ele, type, func) {
+	  // var amnhh = Amnhh(xxx); amnhh.add('type', func) 的处理函数
+	  console.log(this)
+	  if (proto.isAmnhh(this)) {
+	    var tmp = type;
+	    type = ele;
+	    func = tmp;
+	    ele = this[0];
+	  }
+	  addEvent(ele, type, func);
+	};
+
+	proto.remove = function (ele, type, func) {
+	  if (proto.isAmnhh(this)) {
+	    var tmp = type;
+	    type = ele;
+	    func = tmp;
+	    ele = this[0];
+	  }
+	  removeEvent(ele, type, func);
+	};
+
+	var eventStr = 'blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu';
+
+
+	proto.each(eventStr.split(' '), function (val) {
+	  proto[val] = function (func) {
+	    this.add(val, func);
+	  };
+	});
+
+	proto.on = proto.add;
+
+
 
 /***/ }
 /******/ ]);
