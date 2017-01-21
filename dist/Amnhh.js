@@ -1080,24 +1080,34 @@ var Amnhh =
 	 * @returns {*}
 	 */
 	proto.data = function (key, value) {
-	  var ownCacheKey;
-	  if (this[0].cacheKey) {
-	    // 有的话就用它之前的
-	    ownCacheKey = this[0].cacheKey;
-	    // 把这个 cache 中唯一的 key 放在这个 dom 上
+	  // 如果从他的属性上面能找到 key
+	  if (this[0].getAttribute('data-' + key) != undefined) {
+	    if (value == undefined) {
+	      return this[0].getAttribute('data-' + key);
+	    } else {
+	      this[0].setAttribute('data-' + key, value);
+	    }
 	  } else {
-	    // 为每个 dom 在 cache 中创建唯一的 key
-	    ownCacheKey = this.expando + ++ this.uid;
-	    // 初始化在 cache 中的每个 dom 对应的的缓存对象
-	    this.cache[ownCacheKey] = {};
-	    this[0].cacheKey = ownCacheKey;
-	  }
+	    var ownCacheKey;
+	    if (this[0].cacheKey) {
+	      // 有的话就用它之前的
+	      ownCacheKey = this[0].cacheKey;
+	      // 把这个 cache 中唯一的 key 放在这个 dom 上
+	    } else {
+	      // 为每个 dom 在 cache 中创建唯一的 key
+	      ownCacheKey = this.expando + this.uid;
+	      proto.uid ++;
+	      // 初始化在 cache 中的每个 dom 对应的的缓存对象
+	      this.cache[ownCacheKey] = {};
+	      this[0].cacheKey = ownCacheKey;
+	    }
 
-	  // 如果是取数据
-	  if (value === undefined && this.cache[ownCacheKey]) {
-	    return this.cache[ownCacheKey][key];
-	  } else {
-	    this.cache[ownCacheKey][key] = value;
+	    // 如果是取数据
+	    if (value === undefined && this.cache[ownCacheKey]) {
+	      return this.cache[ownCacheKey][key];
+	    } else {
+	      this.cache[ownCacheKey][key] = value;
+	    }
 	  }
 	};
 
