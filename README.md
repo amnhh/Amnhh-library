@@ -3,13 +3,13 @@
 Javascript Library for learning
 
 
-## 时间 
+## 时间
 
 start : 2016-01-13
 
 end : undefined
 
-## 预计完成的功能 : 
+## 预计完成的功能 :
 
 - 内核 `core` 的实现   `√` => 只实现了 `Amnhh` 的构造函数和 `Amnhh.fn` 的定义
 - 内部选择器的实现   `√` => 大部分通过 `querySelectorAll`, 小部分自己处理的 `id`, `class`, `tag` 的匹配
@@ -21,8 +21,12 @@ end : undefined
 - `promise` 的兼容版实现    `√` => 原生支持的话会使用原生的 `Promise`, 不支持的话会使用自己定义的 `Promise`
 - 对 `data` 操作的封装    `√` => 实现了基本的存取 `data` 以及批量添加与删除
 - 对 `events` 的封装    `√` => 对 `add` 和 `remove` 进行了封装, 没有对内部的 `event` 对象过多处理
-- 对 `util` 的封装     `√` => `util` 里面也有一些 `is` 函数的处理 
+- 对 `util` 的封装     `√` => `util` 里面也有一些 `is` 函数的处理
 - 对 `url` 的处理函数的封装    `√` => 实现了在 `url` 上查找数据和遍历 `list` 的功能
+
+新增功能 :
+
+- 2017-01-28 新增, `filter.number` 方法, 用来处理数字, 包含了对千分位分隔符的处理, 对四舍五入的处理以及保留 `n` 位小数补零的处理
 
 ## 目录结构
 
@@ -32,10 +36,10 @@ end : undefined
 ├── build                                   构建脚本目录
 │   └── webpack.config.js
 ├── dist                                    dist
-│   └── Amnhh.js                            
+│   └── Amnhh.js
 ├── node_modules                            依赖
 ├── src                                     项目源码
-│   ├── amnhh.js                            
+│   ├── amnhh.js
 │   ├── core.js
 │   └── fn.js
 ├── test                                    测试目录
