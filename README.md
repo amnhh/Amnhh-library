@@ -7,7 +7,7 @@ Javascript Library for learning
 
 start : 2016-01-13
 
-end : undefined
+end : 2016-1-31(第一版)
 
 ## 预计完成的功能 :
 
