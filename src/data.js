@@ -62,6 +62,7 @@ proto.data = function (key, value) {
     if (value === undefined && this.cache[ownCacheKey]) {
       return this.cache[ownCacheKey][key];
     } else {
+      // 否则就直接设置
       this.cache[ownCacheKey][key] = value;
     }
   }
