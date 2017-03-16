@@ -67,4 +67,12 @@ filter.number = function (number, decimals, point, thousands) {
   return s.join(dec);
 };
 
+
+/**
+ * 给定数字, 给定位数, 不够的前面补齐数字
+ */
+filter.updateNumberWithZeroBefore = function (num, n) {
+  return (Array(n).join('0') + num).slice(-n);
+};
+
 proto.filter = filter;
