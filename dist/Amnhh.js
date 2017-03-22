@@ -405,6 +405,7 @@ var Amnhh =
 	  this[0].innerText = code;
 	};
 
+
 /***/ },
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
@@ -1106,6 +1107,7 @@ var Amnhh =
 	    if (value === undefined && this.cache[ownCacheKey]) {
 	      return this.cache[ownCacheKey][key];
 	    } else {
+	      // 否则就直接设置
 	      this.cache[ownCacheKey][key] = value;
 	    }
 	  }
@@ -1270,6 +1272,7 @@ var Amnhh =
 	__webpack_require__(9);
 	__webpack_require__(10);
 	__webpack_require__(11);
+	__webpack_require__(13);
 
 
 	/**
@@ -1280,6 +1283,26 @@ var Amnhh =
 	// console.log(Amnhh.mix)
 
 	module.exports = Amnhh;
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by anning on 2017/3/22.
+	 */
+	var Amnhh = __webpack_require__(1);
+
+	var proto = Amnhh.prototype;
+
+
+
+	proto.setCookie = function () {
+	  return 1;
+	};
+
+	proto.getCookie = function () {};
 
 /***/ }
 /******/ ]);
