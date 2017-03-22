@@ -6,9 +6,9 @@ var Amnhh = require('./core');
 var proto = Amnhh.prototype;
 
 /**
- * 设置 cookie
+ * 获取 cookie
  */
-proto.setCookie = function (name) {
+proto.getCookie = function (name) {
   // 处理 `name` 为 `name=`
   var cookieName = encodeURIComponent(name) + '=';
   // 使用 `document.cookie` 超过两次, 转外部变量为局部变量
@@ -30,11 +30,55 @@ proto.setCookie = function (name) {
       documentCookie.slice(startIdx, endIdx)
     );
   }
-  
+
   return ret;
 };
 
 /**
- * 获取 cookie
+ *
+ * @param name  {String}  cookie 名字
+ * @param value  {Any}  cookie 值
+ * @param expires  {Date}  啥时候过期
+ * @param path  {String} 路径
+ * @param domain  {String}  域
+ * @param secure  {Boolean}  是否加 secure tag
  */
-proto.getCookie = function () {};
+proto.setCookie = function (name, value, expires, path, domain, secure) {
+  // 生成 `cookie` 的字符串
+  var cookieAddText = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+
+  // 如果 `expires` 是个 `Date` 的实例
+  if (expires instanceof Date) {
+    cookieAddText += '; expires=' + expires.toGMTString();
+  }
+
+  // 如果有 `url` 路径
+  if (path) {
+    cookieAddText += '; path=' + path;
+  }
+
+  // 如果有 `domain` 域
+  if (domain) {
+    cookieAddText += '; domain=' + domain;
+  }
+
+  // 如果有 `secure` 的话
+  if (secure) {
+    cookieAddText += '; secure';
+  }
+
+  // 挂在 `document.cookie` 上
+  document.cookie = cookieAddText;
+};
+
+/**
+ * 删除 cookie
+ * @param name  {String}  cookie 名字
+ * @param path  {String}  路径
+ * @param domain  {String}  域
+ * @param secure  {Boolean}  是否添加 secure 的 tag
+ */
+proto.unset = function (name, path, domain, secure) {
+  // 设置一个时间为 0 的 `cookie`
+  this.setCookie(name, '', newDate(0), paht, domain, secure);
+};
