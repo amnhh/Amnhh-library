@@ -22,14 +22,14 @@ module.exports = {
       './../src/data',
       './../src/url',
       './../src/event',
-      './../src/amnhh',
-      './../src/jsonp'
+      './../src/jsonp',
+      './../src/amnhh'
     ]
   },
 
   output : {
     library : 'Amnhh',
-    libraryTarget : 'var',
+    // libraryTarget : 'var',
     // path : 'dist/js/page',
     // 这里居然必需是一个绝对路径....我....
     path : '/Users/anning/code/Amnhh/Amnhh-library/dist',
