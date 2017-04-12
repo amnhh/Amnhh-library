@@ -16,6 +16,7 @@ require('./data');
 require('./url');
 require('./event');
 require('./cookie');
+require('./jsonp');
 
 
 /**
