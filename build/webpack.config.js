@@ -22,7 +22,9 @@ module.exports = {
       './../src/data',
       './../src/url',
       './../src/event',
-      './../src/amnhh']
+      './../src/amnhh',
+      './../src/jsonp'
+    ]
   },
 
   output : {

@@ -64,7 +64,7 @@ var Amnhh =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -956,6 +956,27 @@ protoJson.addToJson = function (val, func) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
+ * Author : Amnhh
+ * Email : amnhhlod@gmail.com
+ * Date : 2017/4/12
+ */
+
+var Amnhh = __webpack_require__(0);
+
+
+Amnhh.jsonp = function (options) {
+  console.log(Amnhh);
+};
+
+
+
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
  * Author : anning
  * Date : 17/1/15
  * Mail : amnhhlod@gmail.com
@@ -1204,7 +1225,7 @@ if (typeof Promise !== 'undefined') {
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -1261,7 +1282,7 @@ protoUrl.getParamValue = function (name) {
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -1277,12 +1298,12 @@ __webpack_require__(5);
 __webpack_require__(2);
 __webpack_require__(3);
 __webpack_require__(8);
-__webpack_require__(9);
-__webpack_require__(6);
 __webpack_require__(10);
+__webpack_require__(6);
+__webpack_require__(11);
 __webpack_require__(7);
-__webpack_require__(12);
-__webpack_require__(14);
+__webpack_require__(13);
+__webpack_require__(9);
 
 
 /**
@@ -1296,7 +1317,7 @@ module.exports = Amnhh;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -1385,7 +1406,7 @@ proto.unset = function (name, path, domain, secure) {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
@@ -1394,35 +1415,12 @@ __webpack_require__(1);
 __webpack_require__(2);
 __webpack_require__(3);
 __webpack_require__(8);
-__webpack_require__(9);
-__webpack_require__(6);
 __webpack_require__(10);
+__webpack_require__(6);
+__webpack_require__(11);
 __webpack_require__(7);
-module.exports = __webpack_require__(11);
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Author : Amnhh
- * Email : amnhhlod@gmail.com
- * Date : 2017/4/12
- */
-
-var Amnhh = __webpack_require__(0);
-
-var proto = Amnhh.proto;
-
-proto.jsonp = {};
-
-var jsonpProto = proto.jsonp;
-
-jsonpProto.fetch = function (config) {
-  Amnhh.extend();
-};
-
+__webpack_require__(12);
+module.exports = __webpack_require__(9);
 
 
 /***/ })

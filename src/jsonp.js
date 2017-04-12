@@ -6,13 +6,10 @@
 
 var Amnhh = require('./core');
 
-var proto = Amnhh.proto;
 
-proto.jsonp = {};
-
-var jsonpProto = proto.jsonp;
-
-jsonpProto.fetch = function (config) {
-  Amnhh.extend();
+Amnhh.jsonp = function (options) {
+  console.log(Amnhh);
 };
+
+
 
