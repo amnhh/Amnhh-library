@@ -29,7 +29,8 @@ module.exports = {
     library : 'Amnhh',
     libraryTarget : 'var',
     // path : 'dist/js/page',
-    path : './../dist/',
+    // 这里居然必需是一个绝对路径....我....
+    path : '/Users/anning/code/Amnhh/Amnhh-library/dist',
     // 只有 [name] 才可以被识别
     // filename : '[again].bundle.js'
     filename : '[name].js'
